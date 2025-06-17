@@ -6,9 +6,19 @@ import Loader from "./Loader";
 import Sidebar from "./Sidebar";
 import Searchbar from "./Searchbar";
 import Rating from "./Rating";
+import InputItem from "./InputItem";
 
 // main compoenents
 import BookList from "./BookList";
 import BookItem from "./BookItem";
 
-export { Navbar, Sidebar, Searchbar, Loader, BookList, BookItem, Rating };
+export {
+  Navbar,
+  Sidebar,
+  Searchbar,
+  Loader,
+  BookList,
+  BookItem,
+  Rating,
+  InputItem,
+};

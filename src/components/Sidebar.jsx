@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import Searchbar from "./Searchbar";
 import { setLogo } from "../utils";
@@ -6,8 +6,7 @@ import { Link, useParams } from "react-router-dom";
 
 const Sidebar = () => {
   const params = useParams();
-  const [activeCategory, setActiveCategory] = useState(params.category);
- 
+  const [activeCategory, setActiveCategory] = useState(null);
 
   //Get books from the Redux store
   const books = useSelector((state) => state.books.books);
@@ -20,6 +19,14 @@ const Sidebar = () => {
       return acc;
     }, []);
   }, [books]);
+
+  useEffect(() => {
+    if (!params.category) {
+      setActiveCategory(null);
+    } else {
+      setActiveCategory(params.category);
+    }
+  }, [params.category]);
 
   return (
     <div className="bg-base-200 h-screen p-4">
